@@ -1,0 +1,21 @@
+<launch>
+    <node pkg="uvc_camera" type="uvc_camera_node" name="cam0" ns="cam0">
+        <param name="device" value="/dev/video0" />
+    </node>
+
+    <node pkg="uvc_camera" type="uvc_camera_node" name="cam1" ns="cam1">
+        <param name="device" value="/dev/video1" />
+    </node>
+
+    <node pkg="uvc_camera" type="uvc_camera_node" name="cam2" ns="cam2">
+        <param name="device" value="/dev/video2" />
+    </node>
+
+    <node pkg="uvc_camera" type="uvc_camera_node" name="cam3" ns="cam3">
+        <param name="device" value="/dev/video3" />
+    </node>
+
+    <node pkg="uvc_camera" type="uvc_camera_node" name="cam4" ns="cam4">
+        <param name="device" value="/dev/video4" />
+    </node>
+</launch>

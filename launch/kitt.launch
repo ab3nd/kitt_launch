@@ -1,0 +1,18 @@
+<launch>
+    <node pkg="open_loop_diff_drive" type="open_loop_diff_drive_node" name="diff_drive">
+        <remap to="/joy_teleop/cmd_vel" from="/diff_drive/cmd_vel" />
+    </node>
+
+    <!-- Bring up teleop joystick -->
+    <group ns="joy_teleop">
+        <!-- Params apply to everything in this group -->
+        <rosparam command="load" file="$(find kitt_launch)/config/teleop_js.yaml" />
+        <node pkg="joy" type="joy_node" name="joy_node" />
+        <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_twist_joy"/>
+    </group>
+
+    <node pkg="rosserial_python" type="serial_node.py" name="arduino_interface">
+        <param name="port" value="/dev/ttyACM0"/>
+    </node>
+
+</launch>
